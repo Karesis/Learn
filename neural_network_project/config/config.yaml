@@ -1,0 +1,29 @@
+# 项目配置
+project_name: text_classification
+run_name: run_1
+device: cuda  # 或 cpu
+
+model:
+  model_name: text_classifier
+  model_type: transformer  # 或 bilstm, huggingface
+  hidden_size: 768
+  num_layers: 6
+  dropout: 0.1
+
+data:
+  dataset_name: my_dataset
+  train_path: data/train.csv
+  val_path: data/val.csv
+  test_path: data/test.csv
+  batch_size: 32
+  max_seq_length: 256
+
+training:
+  output_dir: outputs
+  seed: 42
+  epochs: 10
+  learning_rate: 2e-5
+  weight_decay: 0.01
+  warmup_steps: 0
+  gradient_accumulation_steps: 1
+  max_grad_norm: 1.0
